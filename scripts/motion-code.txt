@@ -1,0 +1,19 @@
+// IBROHIM / CREATIVE DEVELOPMENT
+
+import { motion } from './universe';
+
+const scene = createExperience({
+  background: '#000000',
+  perspective: 1200,
+  particles: 16000,
+});
+
+function onScroll(progress) {
+  scene.camera.moveThrough(progress);
+  scene.objects.transform(progress);
+  scene.render();
+}
+
+// design. code. other dimensions.
+
+export default scene;
