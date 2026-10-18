@@ -26,7 +26,7 @@ test("six project feeds have accessible buttons and stable server-rendered clock
   assert.ok(html.includes("CONCEPT STUDIES / NOT CLIENT COMMISSIONS"));
 });
 
-test("FAQ controls reference unique answer regions and contact remains honest", () => {
+test("FAQ controls reference unique answer regions and contact channels are live", () => {
   const ids = [...html.matchAll(/\sid="([^"]+)"/g)].map((match) => match[1]);
   assert.equal(ids.length, new Set(ids).size);
   for (let i = 0; i < 5; i++) {
@@ -34,7 +34,14 @@ test("FAQ controls reference unique answer regions and contact remains honest", 
     assert.ok(html.includes(`id="answer-${i}"`));
     assert.ok(html.includes(`aria-labelledby="question-${i}"`));
   }
-  assert.ok(html.includes("Direct contact details coming soon."));
-  assert.ok(!html.includes("mailto:"));
+  assert.ok(html.includes("https://t.me/ummatillayev511"));
+  assert.ok(html.includes("https://t.me/+NiCFlg3N6i9iM2Ji"));
+  assert.ok(
+    html.includes(
+      "https://www.linkedin.com/in/ibrohimjon-ummatillayev-3ba21a421/",
+    ),
+  );
+  assert.ok(html.includes("https://www.instagram.com/ibrohim_14o2/"));
+  assert.ok(html.includes("https://github.com/ibrohimjon140520-lgtm"));
   assert.ok(html.includes("Skip to works"));
 });

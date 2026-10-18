@@ -21,7 +21,7 @@ A finite GSAP ScrollTrigger pin holds the full-screen Works gallery while six ca
 
 Project cards open an accessible native dialog with previous/next controls, Escape and restored focus. FAQ uses numbered disclosure buttons. Mobile has a collapsible navigation menu. Reduced motion and the visual-effects pause button disable decorative animation without disabling content or live timestamps.
 
-Contact channels are intentionally pending. The owner will supply email/social URLs after reviewing the completed project. Set them in `lib/data.ts`; valid entries render automatically. All six projects remain explicitly labelled independent concepts.
+Contact channels are configured with author's verified links (Telegram personal & channel, LinkedIn, Instagram, and GitHub) in `lib/data.ts`. Entries render automatically with interactive cards and direct external links. All six projects remain explicitly labelled independent concepts.
 
 ## Files
 

@@ -147,12 +147,50 @@ export const services = [
     shape: "portal",
   },
 ];
-export const contact: { label: string; href: string | null; hint: string }[] = [
-  { label: "Email", href: null, hint: "Add your email address" },
-  { label: "Instagram", href: null, hint: "Add your Instagram URL" },
-  { label: "Telegram", href: null, hint: "Add your Telegram URL" },
-  { label: "Behance", href: null, hint: "Add your Behance URL" },
-  { label: "GitHub", href: null, hint: "Add your GitHub URL" },
+export interface ContactChannel {
+  label: string;
+  href: string | null;
+  hint: string;
+  handle?: string;
+  type?: "telegram" | "channel" | "linkedin" | "instagram" | "github";
+}
+
+export const contact: ContactChannel[] = [
+  {
+    label: "Telegram",
+    href: "https://t.me/ummatillayev511",
+    hint: "Direct message",
+    handle: "@ummatillayev511",
+    type: "telegram",
+  },
+  {
+    label: "TG Channel",
+    href: "https://t.me/+NiCFlg3N6i9iM2Ji",
+    hint: "Cohle's 🪶 Channel",
+    handle: "Cohle's 🪶",
+    type: "channel",
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/ibrohimjon-ummatillayev-3ba21a421/",
+    hint: "Professional network",
+    handle: "ibrohimjon-ummatillayev",
+    type: "linkedin",
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/ibrohim_14o2/",
+    hint: "Visual feed & stories",
+    handle: "@ibrohim_14o2",
+    type: "instagram",
+  },
+  {
+    label: "GitHub",
+    href: "https://github.com/ibrohimjon140520-lgtm",
+    hint: "Source code & projects",
+    handle: "ibrohimjon140520-lgtm",
+    type: "github",
+  },
 ];
 export const chapters = [
   {

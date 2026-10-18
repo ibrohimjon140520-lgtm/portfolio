@@ -13,6 +13,11 @@ import {
   Play,
   Terminal,
   Crosshair,
+  Send,
+  Radio,
+  Linkedin,
+  Instagram,
+  Github,
 } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -44,7 +49,7 @@ const questions = [
   ],
   [
     "How do we start a project?",
-    "Start with the idea, what you need and your timeline. My direct contact links will appear below once they are configured.",
+    "Start with the idea, what you need and your timeline. My direct contact links are active below across Telegram, Instagram, LinkedIn, and GitHub.",
   ],
 ];
 
@@ -452,10 +457,16 @@ export default function Portfolio() {
                 Curious by default. Drawn to unusual ideas. Always looking for
                 that small detail that makes you stop scrolling.
               </p>
-              <a href="#works" className="text-link">
-                <span>[ VIEW SELECTED WORK ]</span>
-                <ArrowUpRight size={16} />
-              </a>
+              <div className="about-actions">
+                <a href="#works" className="text-link">
+                  <span>[ VIEW SELECTED WORK ]</span>
+                  <ArrowUpRight size={16} />
+                </a>
+                <a href="#contact" className="text-link text-link-accent">
+                  <span>[ DIRECT CHANNELS ]</span>
+                  <ArrowUpRight size={16} />
+                </a>
+              </div>
             </div>
             <div className="profile-note">
               <Terminal size={18} />
@@ -628,19 +639,28 @@ export default function Portfolio() {
             </p>
             <Clock />
           </div>
-          <div className="contact-heading" data-flip>
+          <a
+            href="https://t.me/ummatillayev511"
+            target="_blank"
+            rel="noreferrer noopener"
+            className="contact-heading contact-heading-link"
+            data-flip
+            aria-label="Direct message on Telegram: Let's make some noise"
+          >
             <h2 id="contact-title">
               <Glitch text="LET’S MAKE" />
               <br />
               <span className="outline-word">SOME NOISE.</span>
             </h2>
             <ArrowUpRight className="contact-arrow" strokeWidth={0.7} />
-          </div>
+          </a>
           <div className="contact-bottom">
             <p>
               Have an idea that doesn’t fit the usual?
               <br />
               That’s a good place to start.
+              <br />
+              <span className="contact-status-note">[ DIRECT CHANNELS ONLINE ]</span>
             </p>
             <div className="contact-channels">
               {liveContacts.length ? (
@@ -651,10 +671,26 @@ export default function Portfolio() {
                     target={
                       item.href!.startsWith("mailto:") ? undefined : "_blank"
                     }
-                    rel="noreferrer"
+                    rel="noreferrer noopener"
+                    className="contact-channel-card"
+                    aria-label={`${item.label}: ${item.handle || item.hint}`}
                   >
-                    <Glitch text={item.label.toUpperCase()} />
-                    <ArrowUpRight size={17} />
+                    <span className="channel-icon-pill" aria-hidden="true">
+                      {item.type === "telegram" && <Send size={15} />}
+                      {item.type === "channel" && <Radio size={15} />}
+                      {item.type === "linkedin" && <Linkedin size={15} />}
+                      {item.type === "instagram" && <Instagram size={15} />}
+                      {item.type === "github" && <Github size={15} />}
+                    </span>
+                    <span className="channel-meta">
+                      <span className="channel-title">
+                        <Glitch text={item.label.toUpperCase()} />
+                      </span>
+                      {item.handle && (
+                        <span className="channel-sub">{item.handle}</span>
+                      )}
+                    </span>
+                    <ArrowUpRight size={17} className="channel-arrow" />
                   </a>
                 ))
               ) : (

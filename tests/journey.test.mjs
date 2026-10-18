@@ -62,7 +62,18 @@ test("all six projects have complete local assets and editable details", () => {
     assert.match(svg, new RegExp(p.title));
   }
 });
-test("contact placeholders never point to invented accounts", () => {
+test("contact channels are configured with author's verified links", () => {
   assert.equal(contact.length, 5);
-  for (const c of contact) assert.equal(c.href, null);
+  for (const c of contact) {
+    assert.ok(c.href && c.href.startsWith("https://"));
+  }
+  assert.ok(contact.some((c) => c.href?.includes("ummatillayev511")));
+  assert.ok(contact.some((c) => c.href?.includes("NiCFlg3N6i9iM2Ji")));
+  assert.ok(
+    contact.some((c) =>
+      c.href?.includes("linkedin.com/in/ibrohimjon-ummatillayev"),
+    ),
+  );
+  assert.ok(contact.some((c) => c.href?.includes("ibrohim_14o2")));
+  assert.ok(contact.some((c) => c.href?.includes("ibrohimjon140520-lgtm")));
 });
